@@ -3,32 +3,20 @@ version: "3.9"
 services:
   frontend:
     build: ./frontend
+    container_name: eventapp-frontend
     ports:
-      - "3000:80"
+      - "8080:80"       # frontend accessible at localhost:8080
     depends_on:
       - backend
+    volumes:
+      - ./frontend:/usr/share/nginx/html   # live reload for frontend files
 
   backend:
     build: ./backend
+    
     ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      - DB_NAME=eventdb
-      - DB_USER=eventuser
-      - DB_PASSWORD=eventpass
-      - DB_HOST=db
-
-  db:
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_DB: eventdb
-      POSTGRES_USER: eventuser
-      POSTGRES_PASSWORD: eventpass
+      - "8001:8000"    # backend accessible at localhost:8000
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
+      - ./backend:/app  # live reload for Django code + SQLite file
+    environment:
+      - DEBUG=True      # optional: enable Django debug mode

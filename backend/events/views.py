@@ -1,5 +1,4 @@
-
-from django.http import JsonResponse
+from django.http import HttpResponse
 
 def home(request):
-    return JsonResponse({"message": "DJ Event Management Backend Running"})
+    return HttpResponse("Backend is working")
