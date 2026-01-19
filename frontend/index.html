@@ -2,23 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EventApp</title>
+  <title>EventSphere</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 </head>
 <body>
 
   <nav class="navbar">
-    <h1><center>🎉 EventApp</h1></center>
+    <h1 class="logo">🌐 EventSphere</h1>
+    <ul>
+      <li>Home</li>
+      <li>Events</li>
+      <li>Contact</li>
+    </ul>
   </nav>
 
   <section class="hero">
-    <h2>Discover Amazing Events</h2>
-    <p>Music · Tech · Weddings · Conferences</p>
+    <h2 class="hero-title">
+  Plan ✨ Create ✨ Celebrate
+</h2>
+    <p class="hero-tags">
+  🎤 Music Events · 💻 Tech Conferences · 💍 Dream Weddings · 🏢 Corporate Meets
+</p>
+    <button onclick="scrollToEvents()">Explore Events</button>
+    <button class="outline">Host an Event</button>
   </section>
 
-  <section class="events" id="events">
-    <!-- Cards loaded by JS -->
-  </section>
+  <section class="events" id="events"></section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h3 id="modalTitle"></h3>
+      <p>Thanks for choosing EventSphere 🎉</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+
+  <section class="about-section">
+  <div class="about-container">
+
+    <div class="about-image">
+      <img src="images/about-event.jpg" alt="Event Planning">
+    </div>
+
+    <div class="about-content">
+      <h2>Our Service Philosophy</h2>
+      <p class="about-highlight">
+        Quality, creativity, and a budget-friendly approach for every event.
+      </p>
+
+      <p>
+        At <strong>EventSphere</strong>, we don’t just organize events — we create
+        unforgettable experiences. From intimate weddings to large-scale
+        corporate conferences, our team ensures every detail is planned with
+        precision and passion.
+      </p>
+
+      <p>
+        We believe every event tells a story. Our mission is to transform your
+        ideas into memorable moments through innovative concepts, flawless
+        execution, and a commitment to excellence.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h2 class="section-title">Moments Crafted by EventSphere</h2>
+
+  <div class="gallery">
+    <img src="images/event4.jpg" alt="Music Event">
+    <img src="images/event5.jpg" alt="Tech Event">
+    <img src="images/event3.jpg" alt="Wedding Event">
+    
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About / Branding -->
+    <div class="footer-brand">
+      <h2>🌐 EventSphere</h2>
+      <p>Your partner in creating unforgettable events 🎉</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-nav">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>📍 123 Event Avenue, Chennai, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ info@eventsphere.com</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+  <h3>Follow Us</h3>
+  <a href="https://www.instagram.com" target="_blank">
+    <i class="fab fa-instagram"></i> 
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="https://www.facebook.com" target="_blank">
+    <i class="fab fa-facebook-f"></i> 
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="https://wa.me/919876543210" target="_blank">
+    <i class="fab fa-whatsapp"></i> 
+  </a>
+</div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 EventSphere. All Rights Reserved.</p>
+  </div>
+</footer>
+
 
   <script src="js/app.js"></script>
 </body>

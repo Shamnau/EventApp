@@ -1,35 +1,53 @@
 const events = [
   {
-    name: "Music Concert",
-    date: "25 Jan 2026",
-    location: "Chennai",
-    image: "images/music.jpg"
+    title: "Corporate Events",
+    desc: "Professional planning for corporate meetings",
+    img: "https://images.unsplash.com/photo-1503428593586-e225b39bddfe"
   },
   {
-    name: "Tech Conference",
-    date: "10 Feb 2026",
-    location: "Bangalore",
-    image: "images/tech.jpg"
+    title: "Wedding Planning",
+    desc: "Make your special day unforgettable",
+    img: "images/wedding.jpg"
   },
   {
-    name: "Wedding Expo",
-    date: "18 Mar 2026",
-    location: "Kochi",
-    image: "images/wedding.jpg"
+    title: "Music Concerts",
+    desc: "Live shows with amazing experience",
+    img: "images/music.jpg"
+  },
+  {
+    title: "Tech Conferences",
+    desc: "Innovative technology events",
+    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
   }
 ];
 
-const eventsDiv = document.getElementById("events");
+const eventsContainer = document.getElementById("events");
 
 events.forEach(event => {
-  eventsDiv.innerHTML += `
-    <div class="card">
-      <img src="${event.image}" />
-      <div class="card-content">
-        <h3>${event.name}</h3>
-        <p>${event.date} | ${event.location}</p>
-        <button>Register</button>
-      </div>
+  const card = document.createElement("div");
+  card.className = "card";
+
+  card.innerHTML = `
+    <img src="${event.img}" />
+    <div class="card-content">
+      <h3>${event.title}</h3>
+      <p>${event.desc}</p>
+      <button onclick="openModal('${event.title}')">Book Now</button>
     </div>
   `;
+
+  eventsContainer.appendChild(card);
 });
+
+function openModal(title) {
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function scrollToEvents() {
+  document.getElementById("events").scrollIntoView({ behavior: "smooth" });
+}
