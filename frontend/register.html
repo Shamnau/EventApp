@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join EventSphere</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.8)
+        ),
+        url("dj-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 60px;
+      color: white;
+    }
+
+    /* Left text content */
+    .hero-text {
+      max-width: 45%;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    /* Register card (right side) */
+    .register-card {
+      margin-left: auto;
+      width: 380px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 30px;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .register-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00e5ff;
+    }
+
+    .register-card input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .register-card button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #00e5ff, #7c4dff);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .register-card button:hover {
+      transform: scale(1.05);
+    }
+
+    .register-card p {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .register-card a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left creative text -->
+  <div class="hero-text">
+    <h1>Feel the Beat 🎶</h1>
+    <p>
+      Join <strong>EventSphere</strong> and unlock access to exclusive DJ nights,
+      live concerts, and unforgettable events.
+      <br><br>
+      Don’t just attend — <strong>experience the vibe.</strong>
+    </p>
+  </div>
+
+  <!-- Register form -->
+  <div class="register-card">
+    <h2>Create Account</h2>
+    <form onsubmit="redirectToLogin(event)">
+
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Join Now 🚀</button>
+    </form>
+    <p>Already a member? <a href="login.html">Login</a></p>
+  </div>
+  <script>
+  function redirectToLogin(event) {
+    event.preventDefault(); // stop form submit
+    window.location.href = "login.html";
+  }
+</script>
+
+
+</body>
+</html>

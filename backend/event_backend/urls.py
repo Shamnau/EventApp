@@ -14,11 +14,47 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib import admin
 from django.urls import path
-from events.views import home
+from django.http import JsonResponse
+from events.views import (
+    home,
+    booking,
+    contact,
+    register_user,
+    login_user,
+    login_page,
+    logout_user,
+)
+
+def backend_status(request):
+    return JsonResponse({
+        "status": "ok",
+        "service": "EventSphere Backend",
+        "message": "Backend is running successfully"
+    })
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home, name="home"),
+
+    # Pages
+   path("", backend_status, name="backend_status"),
+    path("booking/", booking, name="booking"),
+    path("contact/", contact, name="contact"),
+    path("login/", login_page, name="login"),
+    path("logout/", logout_user, name="logout"),
+
+    # APIs
+    path("api/register/", register_user),
+    path("api/login/", login_user),
+    path("api/status/", backend_status),
+   
 ]
+
+
+
+
+
+
+
+
+

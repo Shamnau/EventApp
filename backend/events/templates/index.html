@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EventSphere</title>
+  <style>
+    
+.hero {
+  pointer-events: auto;  /* allow clicks inside hero */
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  animation: bouncePop 1s ease;
+}
+
+@keyframes bouncePop {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+
+
+.about-section {
+  background: #111827;
+  color: white;
+  padding: 60px 40px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-highlight {
+  font-size: 18px;
+  color: #60a5fa;
+  margin-bottom: 15px;
+}
+
+.about-content p {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.gallery-section {
+  padding: 50px 30px;
+  text-align: center;
+  background: #f4f6f8;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+  color: white;
+}
+
+.hero-tags {
+  font-size: 18px;
+  margin-top: 15px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+.hero-buttons .outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+
+/* EVENTS GRID */
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: fadeUp 0.6s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card-content h3 {
+  margin: 0;
+}
+
+.card-content p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background: #0b244d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+
+.footer {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer h2, .footer h3 {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #f9c74f;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-social a:hover {
+  color: #f9c74f; /* Highlight color on hover */
+}
+
+
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* =========================
+   CONTACT PAGE STYLES
+========================= */
+
+.contact-section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 40px 20px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Contact info layout */
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+/* Location & details cards */
+.contact-info > div {
+  flex: 1;
+  min-width: 280px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+  margin-bottom: 15px;
+  color: #2575fc;
+  font-size: 22px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 10px rgba(37, 117, 252, 0.3);
+  outline: none;
+}
+
+/* Submit button */
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .contact-section {
+    margin: 40px auto;
+  }
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="navbar" style="display:flex; align-items:center; background:#111827; padding:15px 40px;">
+  
+  <h1 class="logo" style="color:white; font-size:30px; font-weight:bold; margin:0;">
+    🌐 EventSphere
+  </h1>
+
+  <ul style="
+    list-style:none;
+    display:flex;
+    gap:25px;
+    margin-left:auto;
+    padding:0;
+  ">
+    <li><a href="/" style="color:white; text-decoration:none;">Home</a></li>
+    <li><a href="#events" style="color:white; text-decoration:none;">Events</a></li>
+     <li>
+  <a href="http://localhost:8001/contact/" style="color:white; text-decoration:none;">
+    Contact
+  </a>
+</li>
+  </ul>
+
+</nav>
+
+  <section class="hero">
+    <h2 class="hero-title">
+  Plan ✨ Create ✨ Celebrate
+</h2>
+    <p class="hero-tags">
+  🎤 Music Events · 💻 Tech Conferences · 💍 Dream Weddings · 🏢 Corporate Meets
+</p>
+    <button onclick="scrollToEvents()">Explore Events</button>
+    <button class="outline">Host an Event</button>
+  </section>
+
+  <section class="events" id="events"></section>
+
+ 
+
+
+  <section class="about-section">
+  <div class="about-container">
+
+    <div class="about-image">
+      <img src="images/about-event.jpg" alt="Event Planning">
+    </div>
+
+    <div class="about-content">
+      <h2>Our Service Philosophy</h2>
+      <p class="about-highlight">
+        Quality, creativity, and a budget-friendly approach for every event.
+      </p>
+
+      <p>
+        At <strong>EventSphere</strong>, we don’t just organize events — we create
+        unforgettable experiences. From intimate weddings to large-scale
+        corporate conferences, our team ensures every detail is planned with
+        precision and passion.
+      </p>
+
+      <p>
+        We believe every event tells a story. Our mission is to transform your
+        ideas into memorable moments through innovative concepts, flawless
+        execution, and a commitment to excellence.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h2 class="section-title">Moments Crafted by EventSphere</h2>
+
+  <div class="gallery">
+    <img src="images/event4.jpg" alt="Music Event">
+    <img src="images/event5.jpg" alt="Tech Event">
+    <img src="images/event3.jpg" alt="Wedding Event">
+    
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About / Branding -->
+    <div class="footer-brand">
+      <h2>🌐 EventSphere</h2>
+      <p>Your partner in creating unforgettable events 🎉</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-nav">
+      <h3>Quick Links</h3>
+      <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="index.html#events">Events</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>📍 123 Event Avenue, Chennai, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ info@eventsphere.com</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+  <h3>Follow Us</h3>
+  <a href="https://www.instagram.com" target="_blank">
+    <i class="fab fa-instagram"></i> 
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="https://www.facebook.com" target="_blank">
+    <i class="fab fa-facebook-f"></i> 
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="https://wa.me/919876543210" target="_blank">
+    <i class="fab fa-whatsapp"></i> 
+  </a>
+</div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 EventSphere. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -28,26 +28,15 @@ events.forEach(event => {
   card.className = "card";
 
   card.innerHTML = `
-    <img src="${event.img}" />
+    <img src="${event.img}" alt="${event.title}" />
     <div class="card-content">
       <h3>${event.title}</h3>
       <p>${event.desc}</p>
-      <button onclick="openModal('${event.title}')">Book Now</button>
+     <a href="http://localhost:8001/booking/?event=${encodeURIComponent(event.title)}">
+        <button>Book Now</button>
+      </a>
     </div>
   `;
 
   eventsContainer.appendChild(card);
 });
-
-function openModal(title) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-function scrollToEvents() {
-  document.getElementById("events").scrollIntoView({ behavior: "smooth" });
-}

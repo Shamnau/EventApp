@@ -5,18 +5,18 @@ services:
     build: ./frontend
     container_name: eventapp-frontend
     ports:
-      - "8080:80"       # frontend accessible at localhost:8080
+      - "8080:80"
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/usr/share/nginx/html   # live reload for frontend files
 
   backend:
     build: ./backend
-    
+    container_name: eventapp-backend
     ports:
-      - "8001:8000"    # backend accessible at localhost:8000
+      - "8001:8000"
     volumes:
-      - ./backend:/app  # live reload for Django code + SQLite file
+      - ./backend:/app
+    working_dir: /app
+    command: python manage.py runserver 0.0.0.0:8000
     environment:
-      - DEBUG=True      # optional: enable Django debug mode
+      DEBUG: "True"

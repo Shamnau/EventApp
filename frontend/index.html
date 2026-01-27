@@ -11,14 +11,35 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <h1 class="logo">🌐 EventSphere</h1>
-    <ul>
-      <li>Home</li>
-      <li>Events</li>
-      <li>Contact</li>
-    </ul>
-  </nav>
+<nav class="navbar" style="display:flex; align-items:center; background:#111827; padding:15px 40px;">
+  
+  <h1 class="logo" style="color:white; font-size:30px; font-weight:bold; margin:0;">
+    🌐 EventSphere
+  </h1>
+
+  <ul style="
+    list-style:none;
+    display:flex;
+    gap:25px;
+    margin-left:auto;
+    padding:0;
+  ">
+    <li><a href="/" style="color:white; text-decoration:none;">Home</a></li>
+    <li><a href="#events" style="color:white; text-decoration:none;">Events</a></li>
+     <li>
+  <a href="http://localhost:8001/contact/" style="color:white; text-decoration:none;">
+    Contact
+  </a>
+</li>
+ <li>
+      <a href="http://localhost:8001/logout/"
+     style="color:white; text-decoration:none;">
+    Logout
+  </a>
+  </li>
+  </ul>
+
+</nav>
 
   <section class="hero">
     <h2 class="hero-title">
@@ -33,14 +54,7 @@
 
   <section class="events" id="events"></section>
 
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
-      <h3 id="modalTitle"></h3>
-      <p>Thanks for choosing EventSphere 🎉</p>
-      <button onclick="closeModal()">Close</button>
-    </div>
-  </div>
+ 
 
 
   <section class="about-section">
@@ -96,11 +110,10 @@
     <div class="footer-nav">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About Us</a></li>
-      </ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="index.html#events">Events</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
     </div>
 
     <!-- Contact Info -->

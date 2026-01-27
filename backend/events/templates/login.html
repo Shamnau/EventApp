@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | EventSphere</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)
+        ),
+        url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: rgba(24, 65, 111, 0.55);
+      padding: 30px;
+      width: 360px;
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      color: white;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .login-box button:hover {
+      background: #d81b60;
+    }
+
+    .login-box p {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-box p a {
+      color: #ff4081;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>🎧 EventSphere Login</h2>
+    <form onsubmit="redirectToHome(event)">
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Forgot password? <a href="#">Click here</a></p>
+  </div>
+  <script>
+  function redirectToHome(event) {
+    event.preventDefault();
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

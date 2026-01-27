@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact - EventSphere</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #5272ad, #082a4b);
+      color: white;
+    }
+
+    /* Navbar */
+  .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Back arrow on left */
+.back-arrow {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Logo pushed to right */
+.logo {
+  font-size: 26px;
+  color: white;
+}
+
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+    /* Contact Section */
+    .contact-section {
+      padding: 60px;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact-header h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .contact-header p {
+      color: #dcdcdc;
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .contact-info {
+      width: 40%;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+    }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      color: #00e5ff;
+    }
+
+    .contact-form {
+      width: 60%;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 30px;
+      border-radius: 18px;
+    }
+
+    .contact-form h3 {
+      margin-bottom: 20px;
+      color: #00e5ff;
+      text-align: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #00e5ff, #7c4dff);
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+      }
+
+      .contact-info,
+      .contact-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+
+ <nav class="navbar">
+
+  <!-- Back Arrow (LEFT) -->
+  <div class="back-arrow" onclick="goBack()">
+    ←
+  </div>
+
+  <!-- Logo (RIGHT) -->
+  <h1 class="logo">🌐 EventSphere</h1>
+
+</nav>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+
+    <div class="contact-header">
+      <h2>Contact us</h2>
+      <p>Your trusted platform for planning and booking memorable events.</p>
+    </div>
+
+    <div class="contact-container">
+
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="info-box">
+          <h3>📍 Our Locations</h3>
+          <p><strong>EventSphere HQ</strong><br>Trivandrum, Kerala, India</p>
+          <p><strong>Branch Office</strong><br>Kochi, Kerala, India</p>
+        </div>
+
+        <div class="info-box">
+          <h3>📞 Get in Touch</h3>
+          <p>+91 90000 12345</p>
+          <p>support@eventsphere.com</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form">
+  <h3>Send Us a Message</h3>
+
+  {% if success %}
+    <p style="color:#00ffcc; text-align:center; margin-bottom:10px;">
+      ✅ Message sent successfully!
+    </p>
+  {% endif %}
+
+     <form method="POST" action="http://localhost:8001/contact/">
+
+  {% csrf_token %}
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="tel" name="phone" placeholder="Mobile Number" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <textarea name="message" placeholder="Tell us about your event" required></textarea>
+
+  <button type="submit">Send Message 🚀</button>
+</form>
+      </div>
+
+    </div>
+  </section>
+  <script>
+    function goBack() {
+    window.history.back();
+  }
+  </script>
+
+</body>
+</html>
