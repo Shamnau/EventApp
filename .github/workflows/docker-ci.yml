@@ -1,12 +1,16 @@
-name: Docker CI
+name: Docker CI with Review
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
 
 jobs:
-  test-build-and-push:
+  test:
+    name: Test (Review Stage)
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +33,17 @@ jobs:
         run: |
           python manage.py test
 
-      # ---------- DOCKER BUILD ----------
+  build-and-push:
+    name: Build & Push Docker Images
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ---------- DOCKER ----------
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
