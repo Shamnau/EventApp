@@ -2,7 +2,7 @@
   "name": "eventapp",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve -s build",   
+    "start": "serve -s build",
     "test": "npx jest"
   },
   "dependencies": {
