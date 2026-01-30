@@ -1,10 +1,27 @@
-# Python
+# =====================
+# Python / Django
+# =====================
+venv/
 __pycache__/
 *.pyc
-
-# Django
 db.sqlite3
 .env
 
-# Docker
+# =====================
+# Node / Frontend
+# =====================
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =====================
+# Docker / Logs
+# =====================
 *.log
+
+# =====================
+# OS
+# =====================
+.DS_Store
