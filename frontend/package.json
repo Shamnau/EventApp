@@ -1,13 +1,14 @@
 {
-  "name": "eventapp-frontend",
+  "name": "eventapp",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "start": "npx serve ."
+    "start": "...",
+    "test": "jest"
   },
   "dependencies": {
     "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
-
-
